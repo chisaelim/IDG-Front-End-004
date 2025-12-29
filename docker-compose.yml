@@ -1,0 +1,24 @@
+services:
+  vue-dev:
+    build:
+      context: .
+      target: dev
+    image: my-vue-app-dev:latest
+    container_name: my-vue-app-dev-container
+    volumes:
+      - ./:/app
+    ports:
+      - 5173:5173
+    tty: true
+    stdin_open: true
+    command: npm run dev
+
+  vue-prod:
+    build:
+      context: .
+      target: prod
+    image: my-vue-app-prod:latest
+    container_name: my-vue-app-prod-container
+    ports:
+      - 3000:80
+    
